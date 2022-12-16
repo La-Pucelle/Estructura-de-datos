@@ -9,13 +9,13 @@
 
 // Estructura para almacenar los datos de un paciente
 struct patient {
-  char nombre[MAX_NAME_LENGTH];
-  char direccion[MAX_ADDRESS_LENGTH];
+  char name[MAX_NAME_LENGTH];
+  char address[MAX_ADDRESS_LENGTH];
   char rut[MAX_RUT_LENGTH];
-  char nacimiento[MAX_RUT_LENGTH];
-  char sexo[MAX_RUT_LENGTH];
-  char diaVisita[MAX_RUT_LENGTH];
-  char problemaMedico[MAX_PROBLEM_LENGTH];
+  char birth_date[MAX_RUT_LENGTH];
+  char sex[MAX_RUT_LENGTH];
+  char visit_day[MAX_RUT_LENGTH];
+  char medical_problem[MAX_PROBLEM_LENGTH];
   struct patient *prev;
   struct patient *next;
 };
@@ -32,7 +32,7 @@ void add_patient(struct patient *new_patient) {
   }
 
   //En caso contrario, recorremos la lista hasta llegar al último elemento
-struct patient *current = head;
+  struct patient *current = head;
   while (current->next != NULL) {
     current = current->next;
   }
@@ -43,81 +43,86 @@ struct patient *current = head;
 }
 
 // Función para mostrar los pacientes que visitan en un día determinado
-void show_patients_by_diaVisita(char *diaVisita) {
+void show_patients_by_visit_day(char *visit_day) {
   // Recorremos la lista de pacientes
   struct patient *current = head;
   while (current != NULL) {
     // Si el día de visita del paciente coincide con el día especificado por el usuario, mostramos sus datos
-    if (strcmp(current->diaVisita, diaVisita) == 0) {
-      printf("Nombre: %s\n", current->nombre);
-      printf("Dirección: %s\n", current->direccion);
+    if (strcmp(current->visit_day, visit_day) == 0) {
+      printf("Nombre: %s\n", current->name);
+      printf("Dirección: %s\n", current->address);
       printf("RUT: %s\n", current->rut);
-      printf("Fecha de nacimiento: %s\n", current->nacimiento);
-      printf("sexoo: %s\n", current->sexo);
-      printf("Día de visita: %s\n", current->diaVisita);
-      printf("Problema médico: %s\n", current->problemaMedico);
+      printf("Fecha de nacimiento: %s\n", current->birth_date);
+      printf("Sexo: %s\n", current->sex);
+      printf("Día de visita: %s\n", current->visit_day);
+      printf("Problema médico: %s\n", current->medical_problem);
       printf("\n");
     }
 
     // Avanzamos al siguiente elemento de la lista
     current = current->next;
   }
-} 
+}
 
 int main(int argc, char *argv[]) {
   // Creamos una estructura para almacenar la información de un paciente
   struct patient *p1 = malloc(sizeof(struct patient));
-  strcpy(p1->nombre, "Juan Pérez");
-  strcpy(p1->direccion, "Jose miguel carrera 123");
+  strcpy(p1->name, "Juan Perez");
+  strcpy(p1->address, "Calle Falsa 123");
   strcpy(p1->rut, "12345678-9");
-  strcpy(p1->nacimiento, "01/01/1970");
-  strcpy(p1->sexo, "Hombre");
-  strcpy(p1->diaVisita, "Lunes");
-  strcpy(p1->problemaMedico, "Dolor de cabeza");
+  strcpy(p1->birth_date, "01/01/1970");
+  strcpy(p1->sex, "Hombre");
+  strcpy(p1->visit_day, "Lunes");
+  strcpy(p1->medical_problem, "Dolor de cabeza");
   p1->prev = NULL;
   p1->next = NULL;
 
   // Agregamos el paciente a la lista
   add_patient(p1);
 
-  // Creamos otros pacientes y los agregamos a la lista
+  // Creamos otro paciente y lo agregamos a la lista
   struct patient *p2 = malloc(sizeof(struct patient));
-  strcpy(p2->nombre, "María Rodríguez");
-  strcpy(p2->direccion, "San jorge 456");
+  strcpy(p2->name, "Maria Rodríguez");
+  strcpy(p2->address, "Calle Falsa 456");
   strcpy(p2->rut, "98765432-1");
-  strcpy(p2->nacimiento, "01/01/1980");
-  strcpy(p2->sexo, "Mujer");
-  strcpy(p2->diaVisita, "Martes");
-  strcpy(p2->problemaMedico, "Dolor de estómago");
+  strcpy(p2->birth_date, "01/01/1980");
+  strcpy(p2->sex, "Mujer");
+  strcpy(p2->visit_day, "Martes");
+  strcpy(p2->medical_problem, "Dolor de estomago");
   p2->prev = NULL;
   p2->next = NULL;
 
   add_patient(p2);
 
   struct patient *p3 = malloc(sizeof(struct patient));
-  strcpy(p3->nombre, "Eduardo Sanhueza");
-  strcpy(p3->direccion, "San Carlos 961");
-  strcpy(p3->rut, "20196453-k");
-  strcpy(p3->nacimiento, "13/02/2003");
-  strcpy(p3->sexo, "Hombre");
-  strcpy(p3->diaVisita, "Miercoles");
-  strcpy(p3->problemaMedico, "Dolor de pecho");
+  strcpy(p3->name, "Eduardo Sanhueza");
+  strcpy(p3->address, "Calle Falsa 567");
+  strcpy(p3->rut, "12345678-1");
+  strcpy(p3->birth_date, "01/01/1990");
+  strcpy(p3->sex, "Hombre");
+  strcpy(p3->visit_day, "Miercoles");
+  strcpy(p3->medical_problem, "Dolor de pecho");
+  p3->prev = NULL;
+  p3->next = NULL;
 
   add_patient(p3);
 
   struct patient *p4 = malloc(sizeof(struct patient));
-  strcpy(p4->nombre, "Catalina Gabriela");
-  strcpy(p4->direccion, "San Camilo 462");
-  strcpy(p4->rut, "19.499.234-4");
-  strcpy(p4->nacimiento, "10/11/1998");
-  strcpy(p4->sexo, "Mujer");
-  strcpy(p4->diaVisita, "Jueves");
-  strcpy(p4->problemaMedico, "Fractura");
+  strcpy(p4->name, "Fabricio Castro");
+  strcpy(p4->address, "Calle Falsa 543");
+  strcpy(p4->rut, "12563241-1");
+  strcpy(p4->birth_date, "01/01/1950");
+  strcpy(p4->sex, "Hombre");
+  strcpy(p4->visit_day, "Jueves");
+  strcpy(p4->medical_problem, "Fractura");
+  p4->prev = NULL;
+  p4->next = NULL;
 
   add_patient(p4);
+  
 
-  //Parametro para imprimir los pacientes del dia x
-  show_patients_by_diaVisita("Jueves");
+  show_patients_by_visit_day("Jueves");
 
+  getch();
   return 0;
 }

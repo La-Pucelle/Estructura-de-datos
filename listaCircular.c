@@ -108,10 +108,11 @@ void sort(List*list) {
 int main() {
     // Creamos la lista
     List* list = create_list();
+    int i;
 
     // Solicitamos al usuario que ingrese 10 cadenas
     char buffer[100];
-    for (int i = 0; i < 10; i++) {
+    for ( i = 0; i < 10; i++) {
     printf("Ingrese una cadena: ");
     scanf("%s", buffer);
     push_back(list, strdup(buffer));
@@ -126,5 +127,5 @@ int main() {
     // Imprimimos la lista ordenada
     print_list(list);
 
-return 0;
+    return 0;
 }

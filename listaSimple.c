@@ -105,5 +105,6 @@ int main() {
     // Imprimimos la lista ordenada
     print_list(list);
 
-return 0;
+    getch();
+    return 0;
 }
