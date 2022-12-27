@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define la estructura tree_node para almacenar un número entero y dos punteros a otros nodos del árbol
 typedef struct tree_node {
   int value;
   struct tree_node* left;
   struct tree_node* right;
 } tree_node;
 
-// Declara las funciones sum y sum_multiples_of_3
 int sum(tree_node* root);
 int sum_multiples_of_3(tree_node* root);
 
@@ -19,7 +17,6 @@ int main(void) {
   int n;
   scanf("%d", &n);
   while (n != 0) {
-    // Crea un nuevo nodo para el árbol
     tree_node* new_node = (tree_node*) malloc(sizeof(tree_node));
     new_node->value = n;
     new_node->left = NULL;
@@ -29,9 +26,7 @@ int main(void) {
     if (root == NULL) {
       root = new_node;
     } else {
-      // Crea un puntero auxiliar para recorrer el árbol
       tree_node* aux = root;
-      // Recorre el árbol hasta encontrar un lugar vacío para el nuevo nodo
       while (1) {
         if (n < aux->value) {
           if (aux->left ==NULL) {
@@ -51,7 +46,6 @@ int main(void) {
       }
     }
 
-    // Lee el siguiente número
     scanf("%d", &n);
   }
 
