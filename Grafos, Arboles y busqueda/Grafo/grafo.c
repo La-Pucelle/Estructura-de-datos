@@ -47,7 +47,7 @@ int main() {
   Node nodes[] = {node1, node2, node3, node4};
   int numNodes = sizeof(nodes) / sizeof(Node);
 
-  printFriends(nodes, numNodes, "12312312-3");
+  printFriends(nodes, numNodes, "45645645-6");
 
   return 0;
 }
