@@ -1,15 +1,16 @@
 #include <stdio.h>
-#define NUM_CLIENTES 5
+#define NUM_CLIENTES 3
 
 struct cliente {
     char nombre[50];
     int tiempo;
 };
-
+// Prototipo
 struct cliente clientes[NUM_CLIENTES];
 
 float promedio(struct cliente clientes[]) {
     int suma = 0;
+    // Promedio
     for (int i = 0; i < NUM_CLIENTES; i++) {
         suma += clientes[i].tiempo;
     }
@@ -17,6 +18,7 @@ float promedio(struct cliente clientes[]) {
 }
 
 int main() {
+    // Recorrido for
     for (int i = 0; i < NUM_CLIENTES; i++) {
         printf("Ingrese el nombre del cliente %d: ", i+1);
         scanf("%s", clientes[i].nombre);
